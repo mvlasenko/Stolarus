@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Contentful example";
+}
+@model IEnumerable<Stolarus.Models.Product>
+@using Newtonsoft.Json;
+@using Newtonsoft.Json.Linq;
+
+<h1>This is your Contentful Content!</h1>
+
+<h2>Your products:</h2>
+
+<div>
+    @foreach (var product in Model)
+    {
+        @*<p><strong>Entry id:</strong> @entry.sys.id</p>
+
+        <p><strong>Created at:</strong> @entry.sys.createdAt</p>
+
+        <p>
+            <strong>Json representation:</strong> <pre>@Html.Raw(JsonConvert.SerializeObject(entry, Formatting.Indented))</pre>
+        </p>
+        <hr />*@
+
+        <p>
+            @product.ProductName
+        </p>
+    }
+
+    @if (!Model.Any())
+    {
+        <p>You have no produts, you should create some!</p>
+    }
+</div>
